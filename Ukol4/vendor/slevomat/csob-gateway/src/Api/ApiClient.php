@@ -203,7 +203,7 @@ class ApiClient
 
 		$response = $this->driver->request(
 			$method,
-			$this->apiUrl . '/' . $url,
+			$this->apiUrl . '' . $url,
 			$data
 		);
 
