@@ -33,7 +33,7 @@ $paymentResponse = $requestFactory->createInitPayment(
         new Call\PayOperation(Call\PayOperation::PAYMENT),
 	new Call\PayMethod(Call\PayMethod::CARD),
 	true,
-	'http://localhost/CSOB/start2.php',
+	'http://localhost/TestovaciUkoly/Ukol4/start2.php',
 	new Api\HttpMethod(Api\HttpMethod::POST),
 	$cart,
         'popis',
