@@ -1,0 +1,5 @@
+{
+    "require": {
+        "slevomat/csob-gateway": "^3.1"
+    }
+}

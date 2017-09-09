@@ -1,0 +1,81 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "6a956505cedc6debd92d688f04f6e8b3",
+    "packages": [
+        {
+            "name": "slevomat/csob-gateway",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slevomat/csob-gateway.git",
+                "reference": "4a2765f718986b7ef4272b83629fb28596a52bd0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slevomat/csob-gateway/zipball/4a2765f718986b7ef4272b83629fb28596a52bd0",
+                "reference": "4a2765f718986b7ef4272b83629fb28596a52bd0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "consistence/coding-standard": "^0.10.0",
+                "guzzlehttp/guzzle": "^6.1",
+                "jakub-onderka/php-parallel-lint": "^0.9",
+                "phing/phing": "~2.12",
+                "phpstan/phpstan": "0.1",
+                "phpunit/phpunit": "^5.2.12",
+                "psr/log": "^1.0",
+                "slevomat/coding-standard": "^1.0.5"
+            },
+            "suggest": {
+                "ext-curl": "cURL driver for usage of CurlDriver",
+                "guzzlehttp/guzzle": "HTTP client for usage of GuzzleHttpClient",
+                "psr/log": "Common interface for logging of requests - implementations: https://packagist.org/providers/psr/log-implementation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SlevomatCsobGateway\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Slevomat.cz, s.r.o.",
+                    "homepage": "http://www.slevomat.cz"
+                }
+            ],
+            "description": "CSOB payment gateway client",
+            "keywords": [
+                "card",
+                "csob",
+                "gateway",
+                "paymentgateway"
+            ],
+            "time": "2016-10-03T11:21:34+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

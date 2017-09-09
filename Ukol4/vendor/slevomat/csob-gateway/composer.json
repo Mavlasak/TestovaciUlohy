@@ -1,0 +1,50 @@
+{
+	"name": "slevomat/csob-gateway",
+	"description": "CSOB payment gateway client",
+	"license": "MIT",
+	"type": "library",
+	"keywords": ["csob", "card", "gateway", "paymentgateway"],
+	"authors": [
+		{
+			"name": "Slevomat.cz, s.r.o.",
+			"homepage": "http://www.slevomat.cz"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/slevomat/csob-gateway/issues"
+	},
+	"require": {
+		"ext-openssl": "*",
+		"php": "^7.0"
+	},
+	"require-dev": {
+		"consistence/coding-standard": "^0.10.0",
+		"jakub-onderka/php-parallel-lint": "^0.9",
+		"phing/phing": "~2.12",
+		"phpstan/phpstan": "0.1",
+		"phpunit/phpunit": "^5.2.12",
+		"slevomat/coding-standard": "^1.0.5",
+		"guzzlehttp/guzzle": "^6.1",
+		"psr/log": "^1.0"
+	},
+	"suggest": {
+		"guzzlehttp/guzzle": "HTTP client for usage of GuzzleHttpClient",
+		"ext-curl": "cURL driver for usage of CurlDriver",
+		"psr/log": "Common interface for logging of requests - implementations: https://packagist.org/providers/psr/log-implementation"
+	},
+	"autoload": {
+		"psr-4": {
+			"SlevomatCsobGateway\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"SlevomatCsobGateway\\": "tests/unit"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "3.x-dev"
+		}
+	}
+}
