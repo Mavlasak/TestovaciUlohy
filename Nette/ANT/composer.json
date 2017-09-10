@@ -31,7 +31,9 @@
 		"latte/latte": "^2.4",
 		"tracy/tracy": "^2.4",
 		"dg/adminer-custom": "^1.9",
-		"kdyby/doctrine": "^3.2"
+		"kdyby/doctrine": "^3.2",
+		"monolog/monolog": "^1.23",
+		"ramsey/uuid-doctrine": "^1.4"
 	},
 	"require-dev": {
 		"nette/tester": "^2.0"
