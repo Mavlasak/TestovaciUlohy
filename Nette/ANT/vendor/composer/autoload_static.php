@@ -33,6 +33,7 @@ class ComposerStaticInitc5a65f44cae23c08eba0fd5d4e8bbb03
         ),
         'M' => 
         array (
+            'Moontoast\\Math\\' => 15,
             'Monolog\\' => 8,
         ),
         'K' => 
@@ -74,6 +75,10 @@ class ComposerStaticInitc5a65f44cae23c08eba0fd5d4e8bbb03
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Moontoast\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/moontoast/math/src/Moontoast/Math',
         ),
         'Monolog\\' => 
         array (

@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+//use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\Type;
 
 Type::addType('uuid_binary_ordered_time', 'Ramsey\Uuid\Doctrine\UuidBinaryType');

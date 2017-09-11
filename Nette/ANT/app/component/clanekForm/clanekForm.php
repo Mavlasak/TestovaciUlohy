@@ -5,29 +5,26 @@ use Nette\Application\UI\Control;
 use Nette\Application\UI;
 use Nette\Application\UI\Form;
 
-class formular extends Control
+class clanekForm extends Control
 {
 
     public function render()
     {
         $template = $this->template;
-        $template->setFile(__DIR__ . '/formular.latte');
+        $template->setFile(__DIR__ . '/clanekForm.latte');
         $template->render();
     }
 
-    public function createComponentFormular()
+    public function createComponentClanekForm()
     {
         $form = new UI\Form;
-        $form->addEmail('email', 'Email:');
-        $form->addTextArea('text', 'Text:');
-        $form->addText('jmeno', 'Jméno:');
-        $form->addText('prijmeni', 'Příjmení:');
-        $form->addSubmit('submit', 'Přihlásit se');
-        $form->onSuccess[] = [$this, 'formularSucceeded'];
+        $form->addText('nazev', 'Název:');
+        $form->addSubmit('submit', 'Přidej článek');
+        $form->onSuccess[] = [$this, 'clanekFormSucceeded'];
         return $form;
     }
 
-    public function formularSucceeded(Form $form)
+    public function clanekFormSucceeded(Form $form)
     {
      
     }

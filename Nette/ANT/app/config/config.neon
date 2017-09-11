@@ -24,11 +24,12 @@ database:
 
 
 services:
-	- App\Model\UserManager
-	- App\Forms\FormFactory
-	- App\Forms\SignInFormFactory
-	- App\Forms\SignUpFormFactory
-	router: App\RouterFactory::createRouter
+            - App\Model\UserManager
+            - App\Service\ArticleService
+            - App\Forms\FormFactory
+            - App\Forms\SignInFormFactory
+            - App\Forms\SignUpFormFactory
+            router: App\RouterFactory::createRouter
 
 extensions:
     console: Kdyby\Console\DI\ConsoleExtension

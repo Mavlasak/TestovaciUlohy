@@ -12,6 +12,7 @@ return array(
     'Ramsey\\Uuid\\Doctrine\\' => array($vendorDir . '/ramsey/uuid-doctrine/src'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    'Moontoast\\Math\\' => array($vendorDir . '/moontoast/math/src/Moontoast/Math'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'Kdyby\\Events\\' => array($vendorDir . '/kdyby/events/src/Events'),
     'Kdyby\\Console\\' => array($vendorDir . '/kdyby/console/src'),
