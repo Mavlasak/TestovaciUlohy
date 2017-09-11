@@ -3,26 +3,39 @@
 namespace App;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity
  */
 class Author extends \Kdyby\Doctrine\Entities\BaseEntity {
-
+ 
     /**
+     * @var \Ramsey\Uuid\Uuid
+     *
      * @ORM\Id
-     * @ORM\Column(type="integer", length=10)
-     * @ORM\GeneratedValue
+     * @ORM\Column(type="uuid_binary_ordered_time")
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidOrderedTimeGenerator")
      */
     protected $id;
 
+     /**
+     * One Author has Many Article.
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="Author")
+     */
+    protected $article;   
+    
+    public function __construct() {
+        $this->article = new ArrayCollection();
+    }
+    
     /**
-     * @ORM\Column(type="char", length=20)
+     * @ORM\Column(type="string", length=20)
      */
     protected $jmeno;
 
     /**
-     * @ORM\Column(type="char", length=20)
+     * @ORM\Column(type="string", length=20)
      */
     protected $prijmeni;
 

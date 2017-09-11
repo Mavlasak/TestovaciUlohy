@@ -4,3 +4,8 @@ doctrine:
     user: root
     password: root
     dbname: ant
+    dbal:
+        types:
+           uuid_binary_ordered_time: Ramsey\Uuid\Doctrine\UuidBinaryOrderedTimeType
+        mapping_types:
+           uuid_binary_ordered_time: binary

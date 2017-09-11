@@ -3,31 +3,34 @@
 namespace App;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\DBAL\Types\Type;
 
+Type::addType('uuid_binary_ordered_time', 'Ramsey\Uuid\Doctrine\UuidBinaryType');
 /**
  * @ORM\Entity
  */
 class Article extends \Kdyby\Doctrine\Entities\BaseEntity {
 
     /**
+     * @var \Ramsey\Uuid\Uuid
+     *
      * @ORM\Id
-     * @ORM\Column(type="integer", length=10)
-     * @ORM\GeneratedValue
+     * @ORM\Column(type="uuid_binary_ordered_time")
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidOrderedTimeGenerator")
      */
     protected $id;
 
     /**
-     * @ORM\Column(type="char", length=20)
+     * @ORM\Column(type="string", length=20)
      */
     protected $nazev;
 
-    /**
-     * @ORM\Column(type="integer", length=10)
-     */
-    protected $author_id;
+   
 
     /**
-     * @ORM\ManyToOne(targetEntity="Author", inversedBy="article")
+     * @ORM\ManyToOne(targetEntity="Author", inversedBy="features")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     protected $author;
@@ -43,8 +46,8 @@ class Article extends \Kdyby\Doctrine\Entities\BaseEntity {
     public function setNazev($nazev) {
         $this->nazev = $nazev;
     }
-    
-     public function getAuthor_id() {
+
+    public function getAuthor_id() {
         return $this->author_id;
     }
 
@@ -52,5 +55,4 @@ class Article extends \Kdyby\Doctrine\Entities\BaseEntity {
         $this->author_id = $id;
     }
 
-    
 }
