@@ -9,4 +9,9 @@ class HomepagePresenter extends BasePresenter {
         return $formular;
     }
 
+    protected function createComponentClanekForm() {
+        $clanekForm = new \App\Component\clanekForm();
+        return $clanekForm;
+    }
+    
 }
