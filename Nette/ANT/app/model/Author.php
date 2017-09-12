@@ -41,7 +41,7 @@ class Author extends \Kdyby\Doctrine\Entities\BaseEntity {
     protected $prijmeni;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, unique=true)
      */
     protected $email;
 

@@ -3,10 +3,7 @@
 namespace App\Model;
 
 use Doctrine\ORM\Mapping as ORM;
-//use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\DBAL\Types\Type;
 
-Type::addType('uuid_binary_ordered_time', 'Ramsey\Uuid\Doctrine\UuidBinaryType');
 /**
  * @ORM\Entity
  */
@@ -27,8 +24,6 @@ class Article extends \Kdyby\Doctrine\Entities\BaseEntity {
      */
     protected $nazev;
 
-   
-
     /**
      * @ORM\ManyToOne(targetEntity="Author", inversedBy="features")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
@@ -46,13 +41,13 @@ class Article extends \Kdyby\Doctrine\Entities\BaseEntity {
     public function setNazev($nazev) {
         $this->nazev = $nazev;
     }
-
-    public function getAuthor_id() {
-        return $this->author_id;
+       
+    public function getAuthor() {
+        return $this->author;
     }
 
-    public function setAuthor_id($id) {
-        $this->author_id = $id;
+    public function setAuthor($id) {
+        $this->author = $id;
     }
-
+    
 }

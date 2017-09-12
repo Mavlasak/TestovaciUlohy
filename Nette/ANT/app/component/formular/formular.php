@@ -5,18 +5,17 @@ namespace App\Component;
 use Nette\Application\UI\Control;
 use Nette\Application\UI;
 use Nette\Application\UI\Form;
-use App\Service\ArticleService;
-use Tracy\Debugger;
+use App\Service\AuthorService;
 
 class formular extends Control {
 
        /** @var user */
-    private $articleService;
+    private $authorService;
 
-    public function __construct(ArticleService $articleService)
+    public function __construct(AuthorService $authorService)
     {
         parent::__construct();
-        $this->articleService = $articleService;
+        $this->authorService = $authorService;
     }
     
     public function render() {
@@ -37,9 +36,9 @@ class formular extends Control {
     }
 
     public function formularSucceeded(Form $form) {
-        
+         $values = $form->getValues();
 //Debugger::barDump($this->articleService, 'xxx');
-        $this->articleService->createArticle();
+        $this->authorService->createAuthor($values);
     }
 
 }
