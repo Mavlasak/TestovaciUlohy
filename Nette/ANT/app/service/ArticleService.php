@@ -20,6 +20,7 @@ class ArticleService {
         $article = new Article;
         $article->setAuthor($autor);
         $article->setNazev($values['nazev']);
+        $article->setText($values['text']);
         $this->entityManager->persist($article);
         $this->entityManager->flush();
     }

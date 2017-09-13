@@ -45,11 +45,6 @@ class Author extends \Kdyby\Doctrine\Entities\BaseEntity {
      */
     protected $email;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    protected $text;
-
     public function getId() {
         return $this->id;
     }
@@ -76,14 +71,6 @@ class Author extends \Kdyby\Doctrine\Entities\BaseEntity {
 
     public function setEmail($email) {
         $this->email = $email;
-    }
-
-    public function getText() {
-        return $this->text;
-    }
-
-    public function setText($text) {
-        $this->text = $text;
     }
 
 }

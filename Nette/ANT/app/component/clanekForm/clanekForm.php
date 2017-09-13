@@ -35,14 +35,13 @@ class clanekForm extends Control {
     public function createComponentClanekForm() {
         $form = new UI\Form;
         $form->addText('nazev', 'Název:');
+        $form->addTextArea('text', 'Text článku:');
         $autori = $this->authorService->nactiAutory();
         foreach ($autori as $autor) {
             $this->aut2[$autor->email] = $autor;
             $aut1[$autor->email] = $autor->email;
         }
-        
-         Debugger::barDump($autori, 'autori');
-        if ($autori!==array()) {
+        if ($autori !== array()) {
             $form->addRadioList('autor', 'Autor:', $aut1);
         }
         $form->addSubmit('submit', 'Přidej článek');
@@ -53,7 +52,6 @@ class clanekForm extends Control {
     public function clanekFormSucceeded(Form $form) {
         $values = $form->getValues();
         $autor = $this->aut2[$values->autor];
-        // Debugger::barDump($values, 'values');
         $this->articleService->createArticle($values, $autor);
     }
 

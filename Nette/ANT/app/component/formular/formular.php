@@ -24,10 +24,11 @@ class formular extends Control {
         $template->render();
     }
 
-    public function createComponentFormular() {
+     public function createComponentFormular() {
         $form = new UI\Form;
         $form->addEmail('email', 'Email:');
-        $form->addTextArea('text', 'Text:');
+        $form->addTextArea('text', 'Text článku:');
+        $form->addText('nazev', 'Název článku:');
         $form->addText('jmeno', 'Jméno:');
         $form->addText('prijmeni', 'Příjmení:');
         $form->addSubmit('submit', 'Přidej autora');
@@ -35,9 +36,8 @@ class formular extends Control {
         return $form;
     }
 
-    public function formularSucceeded(Form $form) {
-         $values = $form->getValues();
-//Debugger::barDump($this->articleService, 'xxx');
+      public function formularSucceeded(Form $form) {
+        $values = $form->getValues();
         $this->authorService->createAuthor($values);
     }
 

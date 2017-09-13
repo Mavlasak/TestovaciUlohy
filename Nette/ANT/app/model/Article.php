@@ -25,6 +25,11 @@ class Article extends \Kdyby\Doctrine\Entities\BaseEntity {
     protected $nazev;
 
     /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $text;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="Author", inversedBy="features")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
@@ -50,4 +55,11 @@ class Article extends \Kdyby\Doctrine\Entities\BaseEntity {
         $this->author = $id;
     }
     
+        public function getText() {
+        return $this->text;
+    }
+
+    public function setText($text) {
+        $this->text = $text;
+    }
 }
