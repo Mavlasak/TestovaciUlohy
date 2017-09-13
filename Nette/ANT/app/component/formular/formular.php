@@ -6,25 +6,29 @@ use Nette\Application\UI\Control;
 use Nette\Application\UI;
 use Nette\Application\UI\Form;
 use App\Service\AuthorService;
+use App\Service\ArticleService;
 
 class formular extends Control {
 
-       /** @var user */
+    /** @var user */
     private $authorService;
 
-    public function __construct(AuthorService $authorService)
-    {
+    /** @var user */
+    private $articleService;
+
+    public function __construct(AuthorService $authorService, ArticleService $articleService) {
         parent::__construct();
         $this->authorService = $authorService;
+        $this->articleService = $articleService;
     }
-    
+
     public function render() {
         $template = $this->template;
         $template->setFile(__DIR__ . '/formular.latte');
         $template->render();
     }
 
-     public function createComponentFormular() {
+    public function createComponentFormular() {
         $form = new UI\Form;
         $form->addEmail('email', 'Email:');
         $form->addTextArea('text', 'Text článku:');
@@ -36,7 +40,12 @@ class formular extends Control {
         return $form;
     }
 
-      public function formularSucceeded(Form $form) {
+    public function createComponentClanekForm() {
+        $clanekForm = new \App\Component\clanekForm($this->articleService, $this->authorService);
+        return $clanekForm;
+    }
+
+    public function formularSucceeded(Form $form) {
         $values = $form->getValues();
         $this->authorService->createAuthor($values);
     }

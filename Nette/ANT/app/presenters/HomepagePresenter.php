@@ -8,7 +8,6 @@ use App\Service\AuthorService;
 class HomepagePresenter extends BasePresenter {
 
     public $articleService;
-    
     public $authorService;
 
     function __construct(ArticleService $ArticleService, AuthorService $AuthorService) {
@@ -17,13 +16,8 @@ class HomepagePresenter extends BasePresenter {
     }
 
     protected function createComponentFormular() {
-        $formular = new \App\Component\formular($this->authorService);
+        $formular = new \App\Component\formular($this->authorService, $this->articleService);
         return $formular;
-    }
-
-    protected function createComponentClanekForm() {
-        $clanekForm = new \App\Component\clanekForm($this->articleService,$this->authorService );
-        return $clanekForm;
     }
 
 }

@@ -2,8 +2,8 @@
 
 namespace App\Service;
 
-use App\Model\Author;
-use App\Model\Article;
+use App\Entity\Author;
+use App\Entity\Article;
 use Kdyby\Doctrine\EntityManager;
 use Tracy\Debugger;
 

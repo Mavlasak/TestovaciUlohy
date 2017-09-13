@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Model\Article;
+use App\Entity\Article;
 use Kdyby\Doctrine\EntityManager;
 
 class ArticleService {
