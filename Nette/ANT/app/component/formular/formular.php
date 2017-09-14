@@ -67,6 +67,7 @@ class formular extends Control {
         //$this->template->clanek = $values;
         if ($this->presenter->isAjax()) {
             $this->redrawControl('snip');
+            $this->redrawControl('snip2');
         } else {
             $this->presenter->redirect('this');
         };
