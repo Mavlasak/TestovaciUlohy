@@ -10,8 +10,8 @@ use App\Service\AuthorService;
 
 class clanekForm extends Control {
 
-    use BaseTrait; 
-    
+    use BaseTrait;
+
     /** @persistent */
     public $aut2 = array();
 
@@ -36,8 +36,12 @@ class clanekForm extends Control {
     public function createComponentClanekForm() {
         $form = new UI\Form;
         self::makeBootstrap4($form);
-        $form->addText('nazev', 'Název:');
-        $form->addTextArea('text', 'Text článku:');
+        $form->addText('nazev', 'Název:')
+                ->setRequired(FALSE)
+                ->addRule(UI\Form::MAX_LENGTH, 'Zadat můžete maximálně %d znaků', 20);
+        $form->addTextArea('text', 'Text článku:')
+                ->setRequired(FALSE)
+                ->addRule(UI\Form::MAX_LENGTH, 'Zadat můžete maximálně %d znaků', 100);
         $autori = $this->authorService->nactiAutory();
         foreach ($autori as $autor) {
             $this->aut2[$autor->email] = $autor;
@@ -46,7 +50,7 @@ class clanekForm extends Control {
         if ($autori !== array()) {
             $form->addRadioList('autor', 'Autor:', $aut1);
         }
-        $form->addSubmit('submit', 'Přidej článek')->setAttribute('class','ajax');
+        $form->addSubmit('submit', 'Přidej článek')->setAttribute('class', 'ajax');
         $form->onSuccess[] = [$this, 'clanekFormSucceeded'];
         return $form;
     }

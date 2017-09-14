@@ -34,11 +34,21 @@ class formular extends Control {
     public function createComponentFormular() {
         $form = new UI\Form;
         self::makeBootstrap4($form);
-        $form->addEmail('email', 'Email:');
-        $form->addTextArea('text', 'Text článku:');
-        $form->addText('nazev', 'Název článku:');
-        $form->addText('jmeno', 'Jméno:');
-        $form->addText('prijmeni', 'Příjmení:');
+        $form->addEmail('email', 'Email:')
+                ->setRequired(FALSE)
+                ->addRule(UI\Form::MAX_LENGTH, 'Zadat můžete maximálně %d znaků', 20);
+        $form->addTextArea('text', 'Text článku:')
+                ->setRequired(FALSE)
+                ->addRule(UI\Form::MAX_LENGTH, 'Zadat můžete maximálně %d znaků', 100);
+        $form->addText('nazev', 'Název článku:')
+                ->setRequired(FALSE)
+                ->addRule(UI\Form::MAX_LENGTH, 'Zadat můžete maximálně %d znaků', 20);
+        $form->addText('jmeno', 'Jméno:')
+                ->setRequired(FALSE)
+                ->addRule(UI\Form::MAX_LENGTH, 'Zadat můžete maximálně %d znaků', 20);
+        $form->addText('prijmeni', 'Příjmení:')
+                ->setRequired(FALSE)
+                ->addRule(UI\Form::MAX_LENGTH, 'Zadat můžete maximálně %d znaků', 20);
         $form->addSubmit('submit', 'Přidej autora')->setAttribute('class', 'ajax');
         $form->onSuccess[] = [$this, 'formularSucceeded'];
         return $form;
