@@ -56,9 +56,11 @@ class clanekForm extends Control {
     }
 
     public function clanekFormSucceeded(Form $form) {
-        $values = $form->getValues();
-        $autor = $this->aut2[$values->autor];
-        $this->articleService->createArticle($values, $autor);
+        $values = $form->getValues();    
+        if (isset($values->autor)&&($values->autor) !== null) {
+            $autor = $this->aut2[$values->autor];
+            $this->articleService->createArticle($values, $autor);
+        }
     }
 
 }
