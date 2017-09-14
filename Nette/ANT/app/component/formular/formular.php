@@ -10,6 +10,8 @@ use App\Service\ArticleService;
 
 class formular extends Control {
 
+use BaseTrait;   
+    
     /** @var user */
     private $authorService;
 
@@ -30,12 +32,13 @@ class formular extends Control {
 
     public function createComponentFormular() {
         $form = new UI\Form;
+        self::makeBootstrap4($form);
         $form->addEmail('email', 'Email:');
         $form->addTextArea('text', 'Text článku:');
         $form->addText('nazev', 'Název článku:');
         $form->addText('jmeno', 'Jméno:');
         $form->addText('prijmeni', 'Příjmení:');
-        $form->addSubmit('submit', 'Přidej autora');
+        $form->addSubmit('submit', 'Přidej autora')->setAttribute('class','ajax');
         $form->onSuccess[] = [$this, 'formularSucceeded'];
         return $form;
     }
@@ -48,6 +51,12 @@ class formular extends Control {
     public function formularSucceeded(Form $form) {
         $values = $form->getValues();
         $this->authorService->createAuthor($values);
+        $this->template->clanek = $values;
+        if ($this->presenter->isAjax()) {
+            $this->redrawControl('snip');
+        } else {
+            $this->presenter->redirect('this');
+        };
     }
 
 }

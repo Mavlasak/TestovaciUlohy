@@ -11,6 +11,8 @@ use Tracy\Debugger;
 
 class clanekForm extends Control {
 
+    use BaseTrait; 
+    
     /** @persistent */
     public $aut2 = array();
 
@@ -34,6 +36,7 @@ class clanekForm extends Control {
 
     public function createComponentClanekForm() {
         $form = new UI\Form;
+        self::makeBootstrap4($form);
         $form->addText('nazev', 'Název:');
         $form->addTextArea('text', 'Text článku:');
         $autori = $this->authorService->nactiAutory();
@@ -44,7 +47,7 @@ class clanekForm extends Control {
         if ($autori !== array()) {
             $form->addRadioList('autor', 'Autor:', $aut1);
         }
-        $form->addSubmit('submit', 'Přidej článek');
+        $form->addSubmit('submit', 'Přidej článek')->setAttribute('class','ajax');
         $form->onSuccess[] = [$this, 'clanekFormSucceeded'];
         return $form;
     }
