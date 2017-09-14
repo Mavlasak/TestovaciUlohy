@@ -5,12 +5,11 @@ Namespace SlevomatCsobGateway;
 require __DIR__ . '/vendor/autoload.php';
 
 
-
 var_dump($_POST);
 
 $requestFactory = new RequestFactory('A2702vhEDp');
 
-$bankPublicKeyFile = "banka.txt";
+$bankPublicKeyFile = "banka.php";
 
 $privateKeyFile = 'rsa_A2702vhEDp.key';
 
