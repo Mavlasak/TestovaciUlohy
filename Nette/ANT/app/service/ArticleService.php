@@ -16,13 +16,18 @@ class ArticleService {
         $this->entityManager = $entityManager;
     }
 
-    public function createArticle($values,$autor) {
+    public function createArticle($values, $autor) {
         $article = new Article;
         $article->setAuthor($autor);
         $article->setNazev($values['nazev']);
         $article->setText($values['text']);
         $this->entityManager->persist($article);
         $this->entityManager->flush();
+    }
+
+    public function nactiClanek($id) {
+        $repository = $this->entityManager->getRepository(Article::getClassName());
+        return $repository->findById($id);
     }
 
 }

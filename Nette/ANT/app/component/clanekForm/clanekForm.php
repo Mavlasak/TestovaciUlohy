@@ -7,7 +7,6 @@ use Nette\Application\UI;
 use Nette\Application\UI\Form;
 use App\Service\ArticleService;
 use App\Service\AuthorService;
-use Tracy\Debugger;
 
 class clanekForm extends Control {
 

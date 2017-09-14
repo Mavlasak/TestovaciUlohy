@@ -56,7 +56,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{$clanek->email}</td>
+                                <td>{$clanek->author->email}</td>
                                 <td>{$clanek->text}</td>
                                 <td>{$clanek->nazev}</td>
                             </tr>
@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class="row">
-        Pozn: Pokud už je v databázi uložen autor s daným emailem tak se pouze k danému autorovi přidá nový článek, jinak je založen nový autor se zadaným jménem a příjemním.
+        Pozn: Pokud už je v databázi uložen autor s daným emailem tak se pouze k danému autorovi přidá nový článek, jinak je založen nový autor se zadaným jménem a příjmením.
     </div>     
 </div>
 

@@ -2,7 +2,6 @@
 
 namespace App\Component;
 
-use Nette\Application\UI;
 use Nette\Application\UI\Form;
 
 trait BaseTrait {

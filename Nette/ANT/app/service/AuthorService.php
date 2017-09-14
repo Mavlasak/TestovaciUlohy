@@ -34,8 +34,8 @@ class AuthorService {
         $article->setNazev($values['nazev']);
         $article->setText($values['text']);
         $this->entityManager->persist($article);
-        $xxx=$this->entityManager->flush();
-        Debugger::barDump($xxx, 'xxx');
+        $this->entityManager->flush();   
+        return $article->getId();
     }
 
     public function nactiAutory() {

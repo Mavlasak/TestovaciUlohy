@@ -7,11 +7,12 @@ use Nette\Application\UI;
 use Nette\Application\UI\Form;
 use App\Service\AuthorService;
 use App\Service\ArticleService;
+use Tracy\Debugger;
 
 class formular extends Control {
 
-use BaseTrait;   
-    
+    use BaseTrait;
+
     /** @var user */
     private $authorService;
 
@@ -38,7 +39,7 @@ use BaseTrait;
         $form->addText('nazev', 'Název článku:');
         $form->addText('jmeno', 'Jméno:');
         $form->addText('prijmeni', 'Příjmení:');
-        $form->addSubmit('submit', 'Přidej autora')->setAttribute('class','ajax');
+        $form->addSubmit('submit', 'Přidej autora')->setAttribute('class', 'ajax');
         $form->onSuccess[] = [$this, 'formularSucceeded'];
         return $form;
     }
@@ -50,8 +51,10 @@ use BaseTrait;
 
     public function formularSucceeded(Form $form) {
         $values = $form->getValues();
-        $this->authorService->createAuthor($values);
-        $this->template->clanek = $values;
+        $id = $this->authorService->createAuthor($values);
+        $posledniClanek = $this->articleService->nactiClanek($id);
+        $this->template->clanek = $posledniClanek[0];
+        //$this->template->clanek = $values;
         if ($this->presenter->isAjax()) {
             $this->redrawControl('snip');
         } else {
